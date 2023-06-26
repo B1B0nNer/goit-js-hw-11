@@ -21,7 +21,7 @@ async function onSubmit(event) {
    event.preventDefault();
    let inputValue = encodeURIComponent(inputEl.value);
    if(inputValue.trim() !== '') {
-
+     
       currentPage = 1;
 
       const arrayPhotos = await getPhotos(inputValue, currentPage);
@@ -35,7 +35,6 @@ async function onSubmit(event) {
          Notiflix.Notify.success(`Hooray! We found ${arrayPhotos.data.totalHits} images.`);
        }
 
-      currentPage = 1;
       if (currentPage === lastPage || lastPage === 0) {
          
          btnLeadMoreEl.classList.add('hidden');
@@ -55,7 +54,7 @@ window.scrollBy({
   top: cardHeight * 0.3,
   behavior: "smooth",
 });
-    }
+}
 
 btnLeadMoreEl.addEventListener('click', loadMore);
 
