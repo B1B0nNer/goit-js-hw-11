@@ -63,8 +63,8 @@ async function loadMore () {
    let inputValue = encodeURIComponent(inputEl.value);
    const morePhotos = await getPhotos(inputValue, currentPage++);
  
-   //galleryEl.innerHTML = galleryEl.innerHTML + makeMarkup(morePhotos);
-   galleryEl.insertAdjacentHTML("beforeend", [...morePhotos]);
+   galleryEl.innerHTML = galleryEl.innerHTML + makeMarkup(morePhotos);
+   //galleryEl.insertAdjacentHTML("beforeend", [...morePhotos]);
 
    new SimpleLightbox('.gallery a', {
       captionDelay: 250,
