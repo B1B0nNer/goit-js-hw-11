@@ -64,9 +64,7 @@ async function loadMore () {
    const morePhotos = await getPhotos(inputValue, currentPage+1);
    currentPage = morePhotos.config.params.page;
  
-   morePhotos.forEach(function(element) {
-      galleryEl.append(element);
-   })
+   galleryEl.innerHTML = galleryEl.innerHTML + makeMarkup(morePhotos);
 
    new SimpleLightbox('.gallery a', {
       captionDelay: 250,
