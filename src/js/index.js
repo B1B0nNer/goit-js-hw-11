@@ -22,9 +22,7 @@ async function onSubmit(event) {
    let inputValue = encodeURIComponent(inputEl.value);
    if(inputValue.trim() !== '') {
 
-      currentPage = 1;
-
-      const arrayPhotos = await getPhotos(inputValue, currentPage);
+      const arrayPhotos = await getPhotos(inputValue, 1);
       galleryEl.innerHTML = makeMarkup(arrayPhotos);
       lastPage = Math.ceil(arrayPhotos.data.totalHits / 40);
       
@@ -35,7 +33,6 @@ async function onSubmit(event) {
          Notiflix.Notify.success(`Hooray! We found ${arrayPhotos.data.totalHits} images.`);
        }
 
-      currentPage = 1;
       if (currentPage === lastPage || lastPage === 0) {
          
          btnLeadMoreEl.classList.add('hidden');
