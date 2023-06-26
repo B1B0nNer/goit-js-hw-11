@@ -21,7 +21,9 @@ async function onSubmit(event) {
    event.preventDefault();
    let inputValue = encodeURIComponent(inputEl.value);
    if(inputValue.trim() !== '') {
-     
+
+      currentPage = 1;
+
       const arrayPhotos = await getPhotos(inputValue, currentPage);
       galleryEl.innerHTML = makeMarkup(arrayPhotos);
       lastPage = Math.ceil(arrayPhotos.data.totalHits / 40);
