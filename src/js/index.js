@@ -21,7 +21,7 @@ async function onSubmit(event) {
    event.preventDefault();
    let inputValue = encodeURIComponent(inputEl.value);
    if(inputValue.trim() !== '') {
-      
+
       currentPage = 1;
 
       const arrayPhotos = await getPhotos(inputValue, currentPage);
@@ -64,7 +64,7 @@ async function loadMore () {
    const morePhotos = await getPhotos(inputValue, currentPage+1);
    currentPage = morePhotos.config.params.page;
  
-   galleryEl.insertAdjacentHTML("beforeend", ...morePhotos);
+   galleryEl.insertAdjacentHTML("beforeend", [...morePhotos]);
 
    new SimpleLightbox('.gallery a', {
       captionDelay: 250,
