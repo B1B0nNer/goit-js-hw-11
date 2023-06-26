@@ -61,7 +61,7 @@ btnLeadMoreEl.addEventListener('click', loadMore);
 async function loadMore () {
 
    let inputValue = encodeURIComponent(inputEl.value);
-   const morePhotos = await getPhotos(inputValue, currentPage++);
+   const morePhotos = await getPhotos(inputValue, ++currentPage);
 
    galleryEl.insertAdjacentHTML("beforeend", makeMarkup(morePhotos));
 
