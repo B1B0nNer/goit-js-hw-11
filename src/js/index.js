@@ -25,7 +25,7 @@ async function onSubmit(event) {
       currentPage = 1;
 
       const arrayPhotos = await getPhotos(inputValue, currentPage);
-      galleryEl.innerHTML = makeMarkup(arrayPhotos);
+      galleryEl.insertAdjacentHTML("beforeend", makeMarkup(arrayPhotos));
       lastPage = Math.ceil(arrayPhotos.data.totalHits / 40);
       
       if (arrayPhotos.data.totalHits === 0) {
